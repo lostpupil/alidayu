@@ -1,8 +1,6 @@
 # Alidayu
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/alidayu`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A gem for use alidayun sms service
 
 ## Installation
 
@@ -22,7 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Try something like below:    
+
+```ruby
+bigfish = Alibaba::Bigfish.new('your_key','your_secret')
+
+#sample params
+params = {rec_num: '110', sms_free_sign_name:'活动验证',sms_template_code: 'SMS_4775414', sms_param: {code:'123456', product:'药药灵',item:'吃药'}}
+
+bigfish.send_sms params
+```
+
+NOTICE:    
+rec_num, sms_free_sign_name,sms_template_code,sms_param are required.    
+And, if you have any question. Send me a pr, or read the f**king document.    
 
 ## Development
 
@@ -32,7 +43,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/alidayu. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/lostpupil/alidayu. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
