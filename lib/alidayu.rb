@@ -31,6 +31,29 @@ module Alibaba
       return res.body
     end
 
+
+    def singlecall_tts(params={})
+      required_params = {app_key: @key,
+                         format: 'json',
+                         method: 'alibaba.aliqin.fc.tts.num.singlecall',
+                         sign_method: 'md5',
+                         timestamp: Time.now.strftime("%Y-%m-%d %H:%M:%S"),
+                         v: '2.0',
+                         called_num: params[:called_num],
+                         called_show_num: params[:called_show_num],
+                         # tts_param: "{'code':123456','product':'药药灵','item':'吃药'}",
+                         tts_param: params[:tts_param].to_json,
+                         tts_code: params[:tts_code]
+                         }
+
+      sign = sign_parmas(required_params)
+      signed_parmas = required_params.merge({sign: sign})
+
+      uri = URI('http://gw.api.taobao.com/router/rest')
+      res = Net::HTTP.post_form(uri,signed_parmas)
+      return res.body
+    end
+
     private
 
     def sign_parmas(params)
