@@ -20,20 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-Try something like below:    
+Try something like below:
 
 ```ruby
 bigfish = Alibaba::Bigfish.new('your_key','your_secret')
 
-#sample params
+#send sms params
 params = {rec_num: '110', sms_free_sign_name:'活动验证',sms_template_code: 'SMS_4775414', sms_param: {code:'123456', product:'药药灵',item:'吃药'}}
-
 bigfish.send_sms params
+
+#singlecall tts params
+params = {called_num: "110", called_show_num: '4008817220', tts_code: 'TTS_5680001', tts_param: {code:'123456', product:'药药灵',item:'吃药'}}
+bigfish.singlecall_tts params
 ```
 
-NOTICE:    
-rec_num, sms_free_sign_name,sms_template_code,sms_param are required.    
-And, if you have any question. Send me a pr, or read the f**king document.    
+NOTICE:
+rec_num, sms_free_sign_name,sms_template_code,sms_param are required.
+And, if you have any question. Send me a pr, or read the f**king document.
 
 ## Development
 
