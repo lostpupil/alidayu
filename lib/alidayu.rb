@@ -4,10 +4,6 @@ require 'json'
 
 module Alibaba
   class Bigfish
-
-    # http:
-    # https:
-
     def initialize(key, secret, https=true)
       @key = key
       @secret = secret
@@ -36,7 +32,6 @@ module Alibaba
       res = Net::HTTP.post_form(uri,signed_parmas)
       return res.body
     end
-
 
     def singlecall_tts(params={})
       required_params = {app_key: @key,
