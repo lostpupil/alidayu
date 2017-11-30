@@ -23,7 +23,7 @@ Or install it yourself as:
 Try something like below:
 
 ```ruby
-bigfish = Alibaba::Bigfish.new('your_key','your_secret')
+bigfish = Alibaba::Bigfish.new('your_key','your_secret', false) # the third params is config for using https default: true
 
 #send sms params
 params = {rec_num: '110', sms_free_sign_name:'活动验证',sms_template_code: 'SMS_4775414', sms_param: {code:'123456', product:'药药灵',item:'吃药'}}

@@ -4,9 +4,15 @@ require 'json'
 
 module Alibaba
   class Bigfish
-    def initialize(key, secret)
+
+    # http:
+    # https:
+
+    def initialize(key, secret, https=true)
       @key = key
       @secret = secret
+
+      @server = https ? "https://eco.taobao.com/router/rest" : "http://gw.api.taobao.com/router/rest"
     end
 
     def send_sms(params={})
@@ -26,7 +32,7 @@ module Alibaba
       sign = sign_parmas(required_params)
       signed_parmas = required_params.merge({sign: sign})
 
-      uri = URI('http://gw.api.taobao.com/router/rest')
+      uri = URI(@server)
       res = Net::HTTP.post_form(uri,signed_parmas)
       return res.body
     end
@@ -49,7 +55,7 @@ module Alibaba
       sign = sign_parmas(required_params)
       signed_parmas = required_params.merge({sign: sign})
 
-      uri = URI('http://gw.api.taobao.com/router/rest')
+      uri = URI(@server)
       res = Net::HTTP.post_form(uri,signed_parmas)
       return res.body
     end
