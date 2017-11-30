@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    alidayu (0.1.0)
+    alidayu (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -17,4 +17,4 @@ DEPENDENCIES
   rake (~> 10.0)
 
 BUNDLED WITH
-   1.10.6
+   1.14.6
